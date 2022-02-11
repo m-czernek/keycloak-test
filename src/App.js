@@ -10,7 +10,9 @@ import PrivateRoute from "./helpers/PrivateRoute";
 function App() {
  return (
    <div>
-     <ReactKeycloakProvider authClient={keycloak}>
+     <ReactKeycloakProvider 
+        authClient={keycloak}
+        initOptions={{ onLoad: 'login-required' }}>
        <Nav />
        <BrowserRouter>
          <Routes>

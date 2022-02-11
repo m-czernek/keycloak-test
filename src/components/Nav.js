@@ -3,7 +3,9 @@ import { useKeycloak } from "@react-keycloak/web";
 
 const Nav = () => {
  const { keycloak, initialized } = useKeycloak();
-
+ if(!!keycloak.authenticated) {
+   console.log(keycloak.token)
+ }
  return (
    <div>
      <div className="top-0 w-full flex flex-wrap">
@@ -38,6 +40,7 @@ const Nav = () => {
                  )}
 
                  {!!keycloak.authenticated && (
+                   
                    <button
                      type="button"
                      className="text-blue-800"
